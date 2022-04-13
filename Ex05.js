@@ -1,5 +1,5 @@
 function func(a, b) {
-  if (80 > a + b > 50) {
+  if (a + b > 50 && a + b < 80) {
     console.log("65");
   } else {
     console.log("80");
