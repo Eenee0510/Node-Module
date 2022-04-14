@@ -1,4 +1,7 @@
-function add2ToArray([i, j, k]) {
-  return [i + 2, j + 2, k + 2];
+function myFunction(num) {
+  return num + 2;
 }
-console.log(add2ToArray([2, 4, 5]));
+const numbers = [65, 44, 12];
+const newArr = numbers.map(myFunction);
+
+console.log(newArr);
