@@ -1,16 +1,19 @@
-const { count } = require("console");
-
-function ankhNum(num) {
-  count = 0;
-  for (let i = 2; i <= num / 2; i++) {
-    if (num % i == 0) {
-      count++;
+function sort_prime(num) {
+  var prime_num1 = [],
+    prime_num2 = [];
+  for (var i = 0; i <= num; i++) {
+    prime_num2.push(true);
+  }
+  for (var i = 2; i <= num; i++) {
+    if (prime_num2[i]) {
+      prime_num1.push(i);
+      for (var j = 1; i * j <= num; j++) {
+        prime_num2[i * j] = false;
+      }
     }
   }
-  if (count == 0 && num != 1) {
-    console.log("It's ankhnii too");
-  } else {
-    console.log("It's no ankhnii too");
-  }
+
+  return prime_num1;
 }
-ankhNum(4);
+
+console.log(sort_prime(5));
