@@ -16,7 +16,7 @@ http
     } else if (request.url === "/bye") {
     } else if (request.url.match(/^\/q/)) {
       const value = request.url.split("=");
-      response.writeHead(200, { "Content-Type": "application/json" });
+      response.writeHead(200);
       if (value[1] == "why") {
         response.write("<h1>Does not matter</h1>");
       } else if (value[1] == "hi") {
