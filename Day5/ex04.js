@@ -1,3 +1,23 @@
+const obj = {
+  data: [
+    {
+      name: "Eenee",
+      gender: "female",
+      status: "student",
+    },
+    {
+      name: "Hongoroo",
+      gender: "female",
+      status: "student",
+    },
+    {
+      name: "Naraa",
+      gender: "male",
+      status: "student",
+    },
+  ],
+};
+var jsonObj = JSON.stringify(obj);
 let http = require("http");
 let fs = require("fs");
 
@@ -22,6 +42,8 @@ http
           response.end(data);
         }
       });
+    } else if (request.url === "/json") {
+      response.end(jsonObj);
     }
   })
   .listen(3000);

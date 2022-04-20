@@ -1,19 +1,13 @@
-function sort_prime(num) {
-  var prime_num1 = [],
-    prime_num2 = [];
-  for (var i = 0; i <= num; i++) {
-    prime_num2.push(true);
-  }
-  for (var i = 2; i <= num; i++) {
-    if (prime_num2[i]) {
-      prime_num1.push(i);
-      for (var j = 1; i * j <= num; j++) {
-        prime_num2[i * j] = false;
-      }
+function isPrime(num) {
+  let isPrime = "";
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      isPrime = false;
+    } else {
+      isPrime = true;
     }
   }
-
-  return prime_num1;
+  return isPrime;
 }
 
-console.log(sort_prime(5));
+console.log(isPrime(10));
