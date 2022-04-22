@@ -12,7 +12,7 @@ http
   .createServer(function (request, response) {
     response.writeHead(200);
     response.write(JSON.stringify(obj));
-    response.end();
+    response.end(); 
   })
   .listen(3000);
 

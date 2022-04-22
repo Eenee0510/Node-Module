@@ -7,6 +7,7 @@ http
       .get("https://ghibliapi.herokuapp.com/films", (response) => {
         let data = [];
         response.on("data", (chunk) => {
+          console.log(chunk);
           data.push(chunk);
         });
         response.on("end", () => {

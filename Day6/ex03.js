@@ -1,6 +1,5 @@
 var https = require("https");
 var http = require("http");
-const { table } = require("console");
 
 http
   .createServer((req, res) => {
@@ -20,7 +19,7 @@ http
             `
         <tr>
           <td>${e.title}</td>
-          <td><img src = "${e.image}"></td>
+          <td><img src = "${e.image}" style = "width: 100px"></td>
         </tr>`;
         });
         let allData = tableStart + filmData + tableEnd;
