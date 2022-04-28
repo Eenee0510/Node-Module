@@ -1,0 +1,17 @@
+{
+  "name": "ex01-project",
+  "version": "0.0.1",
+  "description": "eenee day8 ex01",
+  "main": "ex1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fe": "^2.0.27",
+    "fs-extra": "^10.1.0",
+    "request": "^2.88.2",
+    "requests": "^0.3.0"
+  }
+}
