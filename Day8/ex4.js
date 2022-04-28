@@ -8,9 +8,33 @@ http
       request(
         "https://ghibliapi.herokuapp.com/films",
         (error, response, body) => {
-          if (error) console.log(error);
-          console.log(response.statusCode);
-          console.log(body);
+          if (response) {
+            const films = JSON.parse(body);
+            //  console.log(films);
+            let filmData = "";
+            films.map((e) => {
+              filmData =
+                filmData +
+                `["title": ${e.title},
+       "image": ${e.image},
+       "species": ${request(e.species, (err, res, data) => {
+         if (res) {
+           const spec = JSON.parse(data);
+           console.log(data);
+         }
+       })},
+       ]`;
+            });
+            fse.writeJson(
+              "films04.json",
+              filmData,
+              { name: "fs-extra" },
+              (err) => {
+                if (err) return console.error(err);
+                console.log("success!");
+              }
+            );
+          }
         }
       );
     }
