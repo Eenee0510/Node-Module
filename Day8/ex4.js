@@ -17,12 +17,7 @@ http
                 filmData +
                 `["title": ${e.title},
        "image": ${e.image},
-       "species": ${request(e.species, (err, res, data) => {
-         if (res) {
-           const spec = JSON.parse(data);
-           console.log(data);
-         }
-       })},
+       "species": ${e.species[]},
        ]`;
             });
             fse.writeJson(
