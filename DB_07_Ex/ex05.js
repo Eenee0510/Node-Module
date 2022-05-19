@@ -23,7 +23,7 @@ app.get("/managers/salary", (req, res) => {
   console.log(request);
 
   connection.query(
-    `select salary from salaries s inner join dept_manager d on s.emp_no = d.emp_no;`,
+    `select salary,  from salaries s inner join dept_manager d on s.emp_no = d.emp_no;`,
     [request],
     (err, rows, fields) => {
       if (!err) {
@@ -34,6 +34,39 @@ app.get("/managers/salary", (req, res) => {
       }
     }
   );
+});
+
+app.put("/departments", (req, res) => {
+  connection.query("lock tables departments read");
+  connection.query(
+    "select count(*) as total from departments;",
+    (err, rows, fields) => {
+      if (!err) {
+        res.send(rows);
+      } else {
+        console.log(err);
+        res.send(err);
+      }
+    }
+  );
+});
+
+app.get("/dept_emp", (req, res) => {
+  connection.query(
+    "select count(*) as total from dept_emp;",
+    (err, rows, fields) => {
+      if (!err) {
+        res.send(rows);
+      } else {
+        console.log(err);
+        res.send(err);
+      }
+    }
+  );
+});
+app.get("/unlock", (req, res) => {
+  connection.query("unlock tables;");
+  res.send("unlocked");
 });
 
 app.get;
